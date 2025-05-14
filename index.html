@@ -1,235 +1,752 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>TVVALENAREDE GAMES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shekinah Energéticos - Sua Loja de Produtos Energéticos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #6a1b9a;
+            --secondary-color: #ffab00;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f9fa;
+        }
+        
         body {
-            background: #1a3f1a;
-            margin: 0;
-            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
         }
         
-        #gameTitle {
-            text-align: center;
-            color: yellow;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px blue;
-            margin: 20px 0;
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), #4a148c);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
-        #gameContainer {
-            position: relative;
-            width: 800px;
-            height: 400px;
-            margin: 20px auto;
-            background: #2a5a2a;
-            border: 10px solid #654321;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        }
-
-        .pocket {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: #333;
-            border-radius: 50%;
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white !important;
         }
         
-        .ball {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: white;
-            transition: all 0.02s;
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            transition: all 0.3s;
         }
         
-        .cue {
-            position: absolute;
-            width: 100px;
-            height: 5px;
-            background: #8B4513;
-            transform-origin: left center;
-            transition: transform 0.1s;
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
         }
-
-        .character {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            border: 3px solid white;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
-
-        .character img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .sidebar {
-            position: fixed;
-            right: 20px;
-            top: 100px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .botao {
-            padding: 10px 20px;
-            background: #4CAF50;
-            border: none;
-            border-radius: 5px;
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/1-energetico-4d-energy-drink-250ml-1.jpg');
+            background-size: cover;
+            background-position: center;
             color: white;
-            cursor: pointer;
-            transition: transform 0.2s;
+            padding: 120px 0;
+            text-align: center;
         }
-
-        .botao:hover {
-            transform: scale(1.1);
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            color: var(--dark-color);
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #ff8f00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .product-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .product-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-top: 15px;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .gallery-img {
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .form-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), #4a148c);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .cart-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        
+        .cart-total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1 id="gameTitle">TVVALENAREDE GAMES</h1>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Shekinah Energéticos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galeria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#register">Cadastro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <div id="gameContainer">
-        <!-- Bolsas -->
-        <div class="pocket" style="top: -20px; left: -20px;"></div>
-        <div class="pocket" style="top: -20px; right: -20px;"></div>
-        <div class="pocket" style="bottom: -20px; left: -20px;"></div>
-        <div class="pocket" style="bottom: -20px; right: -20px;"></div>
-        
-        <!-- Personagens -->
-        <div class="character" style="left: 20px; top: 50px;">
-            <img src="https://example.com/bonani-pai.jpg" alt="Bonani Pai">
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <h1 class="hero-title">Shekinah Energéticos</h1>
+            <p class="hero-subtitle">Os melhores produtos energéticos para revenda em todo o Brasil</p>
+            <a href="#products" class="btn btn-primary btn-lg">Ver Produtos</a>
         </div>
-        <div class="character" style="right: 20px; top: 50px;">
-            <img src="https://example.com/bonani-filho.jpg" alt="Bonani Filho">
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-5" id="products">
+        <div class="container">
+            <h2 class="text-center section-title">Nossos Produtos</h2>
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/1-energetico-4d-energy-drink-250ml-1.jpg" alt="Energético 4D" class="product-img">
+                        <div class="p-3">
+                            <h3 class="product-title">Energético 4D 250ml</h3>
+                            <p class="product-price">R$ 4,50</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-1">
+                                <button class="btn btn-primary btn-sm add-to-cart" data-id="1" data-name="Energético 4D 250ml" data-price="4.50">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/2-energetico-badwolf-energy-drink-269ml-1.jpg" alt="Energético Badwolf" class="product-img">
+                        <div class="p-3">
+                            <h3 class="product-title">Energético Badwolf 269ml</h3>
+                            <p class="product-price">R$ 5,20</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-2">
+                                <button class="btn btn-primary btn-sm add-to-cart" data-id="2" data-name="Energético Badwolf 269ml" data-price="5.20">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/3-energetico-flash-power-energy-drink-269ml-1.jpg" alt="Energético Flash Power" class="product-img">
+                        <div class="p-3">
+                            <h3 class="product-title">Energético Flash Power 269ml</h3>
+                            <p class="product-price">R$ 4,80</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-3">
+                                <button class="btn btn-primary btn-sm add-to-cart" data-id="3" data-name="Energético Flash Power 269ml" data-price="4.80">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/4-energetico-loud-energy-drink-269ml-1.jpg" alt="Energético Loud" class="product-img">
+                        <div class="p-3">
+                            <h3 class="product-title">Energético Loud 269ml</h3>
+                            <p class="product-price">R$ 5,00</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-4">
+                                <button class="btn btn-primary btn-sm add-to-cart" data-id="4" data-name="Energético Loud 269ml" data-price="5.00">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/5-energetico-power-up-energy-drink-269ml-1.jpg" alt="Energético Power Up" class="product-img">
+                        <div class="p-3">
+                            <h3 class="product-title">Energético Power Up 269ml</h3>
+                            <p class="product-price">R$ 4,90</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-5">
+                                <button class="btn btn-primary btn-sm add-to-cart" data-id="5" data-name="Energético Power Up 269ml" data-price="4.90">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/6-energetico-red-bull-energy-drink-250ml-1.jpg" alt="Energético Red Bull" class="product-img">
+                        <div class="p-3">
+                            <h3 class="product-title">Energético Red Bull 250ml</h3>
+                            <p class="product-price">R$ 6,50</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-6">
+                                <button class="btn btn-primary btn-sm add-to-cart" data-id="6" data-name="Energético Red Bull 250ml" data-price="6.50">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cart Button -->
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
+                    <i class="fas fa-shopping-cart me-2"></i>Ver Carrinho (<span id="cart-count">0</span>)
+                </button>
+            </div>
         </div>
-        
-        <!-- Tacos e bolas -->
-        <div id="cue" class="cue"></div>
-        <div id="ball1" class="ball" style="left: 300px; top: 200px;"></div>
-        <div id="ball2" class="ball" style="left: 500px; top: 200px; background: red;"></div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-5 bg-light" id="gallery">
+        <div class="container">
+            <h2 class="text-center section-title">Galeria de Produtos</h2>
+            <div class="row">
+                <div class="col-md-4 col-6 mb-4">
+                    <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/1-energetico-4d-energy-drink-250ml-1.jpg" alt="Produto 1" class="gallery-img">
+                </div>
+                <div class="col-md-4 col-6 mb-4">
+                    <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/2-energetico-badwolf-energy-drink-269ml-1.jpg" alt="Produto 2" class="gallery-img">
+                </div>
+                <div class="col-md-4 col-6 mb-4">
+                    <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/3-energetico-flash-power-energy-drink-269ml-1.jpg" alt="Produto 3" class="gallery-img">
+                </div>
+                <div class="col-md-4 col-6 mb-4">
+                    <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/4-energetico-loud-energy-drink-269ml-1.jpg" alt="Produto 4" class="gallery-img">
+                </div>
+                <div class="col-md-4 col-6 mb-4">
+                    <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/5-energetico-power-up-energy-drink-269ml-1.jpg" alt="Produto 5" class="gallery-img">
+                </div>
+                <div class="col-md-4 col-6 mb-4">
+                    <img src="https://hd1001plataformalivre.com.br/imagens/produtos/thumb_650-650/6-energetico-red-bull-energy-drink-250ml-1.jpg" alt="Produto 6" class="gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="py-5" id="register">
+        <div class="container">
+            <h2 class="text-center section-title">Cadastro de Clientes</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="form-section">
+                        <form id="clientForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Nome Completo*</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cpf" class="form-label">CPF*</label>
+                                    <input type="text" class="form-control" id="cpf" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="cnpj" class="form-label">CNPJ (se tiver)</label>
+                                <input type="text" class="form-control" id="cnpj">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail*</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Telefone*</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cellphone" class="form-label">Celular/WhatsApp*</label>
+                                    <input type="tel" class="form-control" id="cellphone" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Endereço*</label>
+                                <input type="text" class="form-control" id="address" required>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="city" class="form-label">Cidade*</label>
+                                    <input type="text" class="form-control" id="city" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="state" class="form-label">Estado*</label>
+                                    <select class="form-select" id="state" required>
+                                        <option value="">Selecione...</option>
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="cep" class="form-label">CEP*</label>
+                                    <input type="text" class="form-control" id="cep" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="website" class="form-label">Site (se tiver)</label>
+                                <input type="url" class="form-control" id="website">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="social" class="form-label">Redes Sociais (se tiver)</label>
+                                <input type="text" class="form-control" id="social" placeholder="Instagram, Facebook, etc.">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="youtube" class="form-label">Canal no YouTube (se tiver)</label>
+                                <input type="url" class="form-control" id="youtube">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="notes" class="form-label">Observações</label>
+                                <textarea class="form-control" id="notes" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 bg-light" id="contact">
+        <div class="container">
+            <h2 class="text-center section-title">Contato</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <h4 class="mb-4">Entre em contato conosco</h4>
+                            <p><i class="fas fa-phone me-2"></i> (XX) XXXX-XXXX</p>
+                            <p><i class="fas fa-envelope me-2"></i> contato@shekinah.com.br</p>
+                            <p><i class="fas fa-map-marker-alt me-2"></i> Endereço da Loja, Cidade - Estado</p>
+                            
+                            <div class="mt-4">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="#" class="navbar-brand">Shekinah Energéticos</a>
+            </div>
+            <p class="mb-4">Revenda autorizada dos melhores produtos energéticos do Brasil</p>
+            <p class="mb-0">&copy; 2025  Produzido pela tvvalenarede.com.br.WhatsApp 12-99769-0407 Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Seu Carrinho de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items">
+                        <!-- Cart items will be added here dynamically -->
+                        <p class="text-center">Seu carrinho está vazio</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <h5 class="cart-total">Total: R$ <span id="cart-total">0,00</span></h5>
+                        <button class="btn btn-primary" id="checkout-btn">Finalizar Pedido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="sidebar">
-        <button class="botao">1 MADE CENTER</button>
-        <button class="botao">2 J.E.C.S</button>
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Finalizar Pedido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="orderForm">
+                        <div class="mb-3">
+                            <label for="client-name" class="form-label">Nome do Cliente*</label>
+                            <input type="text" class="form-control" id="client-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="client-email" class="form-label">E-mail*</label>
+                            <input type="email" class="form-control" id="client-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="client-phone" class="form-label">Telefone/WhatsApp*</label>
+                            <input type="tel" class="form-control" id="client-phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="delivery-address" class="form-label">Endereço de Entrega*</label>
+                            <textarea class="form-control" id="delivery-address" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="order-notes" class="form-label">Observações</label>
+                            <textarea class="form-control" id="order-notes" rows="3"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Enviar Pedido</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Pedido Enviado com Sucesso!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-check-circle text-success mb-3" style="font-size: 4rem;"></i>
+                    <p>Obrigado pelo seu pedido! Entraremos em contato em breve para confirmar os detalhes.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const balls = {
-            ball1: {
-                element: document.getElementById('ball1'),
-                x: 300,
-                y: 200,
-                vx: 0,
-                vy: 0
-            },
-            ball2: {
-                element: document.getElementById('ball2'),
-                x: 500,
-                y: 200,
-                vx: 0,
-                vy: 0
+        // Cart functionality
+        let cart = [];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load cart from localStorage if available
+            if (localStorage.getItem('cart')) {
+                cart = JSON.parse(localStorage.getItem('cart'));
+                updateCart();
             }
-        };
-
-        const cue = document.getElementById('cue');
-        let power = 0;
-        let mouseX = 0;
-        let mouseY = 0;
-
-        function checkCollision(ballA, ballB) {
-            const dx = ballA.x - ballB.x;
-            const dy = ballA.y - ballB.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            return distance < 20;
-        }
-
-        function resolveCollision(ballA, ballB) {
-            const dx = ballB.x - ballA.x;
-            const dy = ballB.y - ballA.y;
-            const angle = Math.atan2(dy, dx);
-            const speedA = Math.sqrt(ballA.vx * ballA.vx + ballA.vy * ballA.vy);
-            const speedB = Math.sqrt(ballB.vx * ballB.vx + ballB.vy * ballB.vy);
             
-            ballA.vx = Math.cos(angle) * speedB;
-            ballA.vy = Math.sin(angle) * speedB;
-            ballB.vx = Math.cos(angle + Math.PI) * speedA;
-            ballB.vy = Math.sin(angle + Math.PI) * speedA;
-        }
-
-        function updatePositions() {
-            Object.values(balls).forEach(ball => {
-                ball.x += ball.vx;
-                ball.y += ball.vy;
-                
-                // Colisão com as bordas
-                if(ball.x < 10 || ball.x > 790) ball.vx *= -0.9;
-                if(ball.y < 10 || ball.y > 390) ball.vy *= -0.9;
-                
-                ball.element.style.left = ball.x + 'px';
-                ball.element.style.top = ball.y + 'px';
+            // Add to cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const name = this.getAttribute('data-name');
+                    const price = parseFloat(this.getAttribute('data-price'));
+                    const quantity = parseInt(document.getElementById(`quantity-${id}`).value);
+                    
+                    // Check if item already in cart
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += quantity;
+                    } else {
+                        cart.push({
+                            id,
+                            name,
+                            price,
+                            quantity
+                        });
+                    }
+                    
+                    updateCart();
+                    saveCart();
+                    
+                    // Show success message
+                    alert(`${quantity} ${name} adicionado(s) ao carrinho!`);
+                });
             });
-
-            // Verificar colisão entre bolas
-            if(checkCollision(balls.ball1, balls.ball2)) {
-                resolveCollision(balls.ball1, balls.ball2);
+            
+            // Checkout button
+            document.getElementById('checkout-btn').addEventListener('click', function() {
+                if (cart.length === 0) {
+                    alert('Seu carrinho está vazio!');
+                    return;
+                }
+                
+                const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+                cartModal.hide();
+                
+                const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+                checkoutModal.show();
+            });
+            
+            // Order form submission
+            document.getElementById('orderForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the order to your server
+                // For this example, we'll just show a success message
+                
+                const checkoutModal = bootstrap.Modal.getInstance(document.getElementById('checkoutModal'));
+                checkoutModal.hide();
+                
+                // Clear the cart
+                cart = [];
+                updateCart();
+                saveCart();
+                
+                // Show success modal
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+            });
+            
+            // Client form submission
+            document.getElementById('clientForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the client data to your server
+                // For this example, we'll just show a success message
+                alert('Cadastro realizado com sucesso!');
+                this.reset();
+            });
+        });
+        
+        function updateCart() {
+            const cartItemsElement = document.getElementById('cart-items');
+            const cartCountElement = document.getElementById('cart-count');
+            const cartTotalElement = document.getElementById('cart-total');
+            
+            // Update count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountElement.textContent = totalItems;
+            
+            if (cart.length === 0) {
+                cartItemsElement.innerHTML = '<p class="text-center">Seu carrinho está vazio</p>';
+                cartTotalElement.textContent = '0,00';
+                return;
             }
+            
+            // Update items list
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div class="cart-item">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6>${item.name}</h6>
+                                <p class="mb-0">R$ ${item.price.toFixed(2)} x ${item.quantity}</p>
+                            </div>
+                            <div>
+                                <p class="mb-0">R$ ${itemTotal.toFixed(2)}</p>
+                                <button class="btn btn-sm btn-outline-danger remove-item" data-id="${item.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsElement.innerHTML = itemsHTML;
+            cartTotalElement.textContent = total.toFixed(2);
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    updateCart();
+                    saveCart();
+                });
+            });
         }
-
-        document.addEventListener('mousemove', (e) => {
-            const rect = gameContainer.getBoundingClientRect();
-            mouseX = e.clientX - rect.left;
-            mouseY = e.clientY - rect.top;
-        });
-
-        document.addEventListener('mousedown', () => {
-            power = 0;
-            const updateCue = () => {
-                const angle = Math.atan2(
-                    mouseY - balls.ball1.y,
-                    mouseX - balls.ball1.x
-                );
-                
-                cue.style.transform = `rotate(${angle}rad)`;
-                cue.style.left = balls.ball1.x + 'px';
-                cue.style.top = balls.ball1.y + 'px';
-                
-                if(power < 10) {
-                    power += 0.1;
-                    requestAnimationFrame(updateCue);
-                }
-            };
-            updateCue();
-        });
-
-        document.addEventListener('mouseup', () => {
-            const angle = Math.atan2(
-                mouseY - balls.ball1.y,
-                mouseX - balls.ball1.x
-            );
-            
-            balls.ball1.vx = Math.cos(angle) * power;
-            balls.ball1.vy = Math.sin(angle) * power;
-
-            const animate = () => {
-                updatePositions();
-                if(Math.abs(balls.ball1.vx) > 0.1 || Math.abs(balls.ball1.vy) > 0.1 ||
-                   Math.abs(balls.ball2.vx) > 0.1 || Math.abs(balls.ball2.vy) > 0.1) {
-                    requestAnimationFrame(animate);
-                }
-            };
-            
-            animate();
-        });
+        
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
     </script>
 </body>
 </html>
