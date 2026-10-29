@@ -1,811 +1,865 @@
+html
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shekinah Energéticos - Produtos energéticos para revenda</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #e67e22;
-            --secondary-color: #f1c40f;
-            --dark-color: #1e2a3a;
-            --light-color: #fef9e6;
-            --instagram: #E4405F;
-            --whatsapp: #25D366;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fff8f0;
-            overflow-x: hidden;
-        }
-        
-        /* BANNER DE CONTATO SUPERIOR (BEM VISÍVEL) */
-        .contact-top-bar {
-            background: linear-gradient(95deg, #f39c12, #e67e22);
-            color: #1e2a3a;
-            text-align: center;
-            padding: 12px 0;
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            border-bottom: 3px solid #ffd966;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1100;
-        }
-        .contact-top-bar a {
-            color: #1e2a3a;
-            text-decoration: none;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .contact-top-bar a:hover {
-            color: white;
-            text-shadow: 0 0 3px rgba(0,0,0,0.3);
-        }
-        .contact-top-bar i {
-            font-size: 1.7rem;
-        }
-        @media (max-width: 576px) {
-            .contact-top-bar {
-                font-size: 1.1rem;
-                padding: 8px 0;
-            }
-            .contact-top-bar i {
-                font-size: 1.3rem;
-            }
-        }
-        
-        /* Navbar moderna */
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color), #b45f1b);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: white !important;
-        }
-        .nav-link {
-            color: rgba(255, 255, 255, 0.85) !important;
-            font-weight: 500;
-            margin: 0 8px;
-            transition: all 0.3s;
-        }
-        .nav-link:hover {
-            color: white !important;
-            transform: translateY(-2px);
-        }
-        
-        /* Banner de produtos em destaque (topo) */
-        .top-banner {
-            background: linear-gradient(135deg, #fff3e0, #ffe6cc);
-            padding: 20px 0;
-            border-bottom: 2px solid var(--secondary-color);
-        }
-        .banner-item {
-            text-align: center;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        .banner-item:hover {
-            transform: translateY(-5px);
-        }
-        .banner-img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--primary-color);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-        }
-        .banner-item:hover .banner-img {
-            border-color: var(--secondary-color);
-            transform: scale(1.05);
-        }
-        .banner-name {
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 8px;
-            color: var(--primary-color);
-        }
-        
-        /* HERO SECTION - Modernizada com efeito letreiro */
-        .hero-section {
-            position: relative;
-            background: linear-gradient(125deg, #ff7e05, #ffb347, #c0392b, #8e44ad);
-            background-size: 300% 300%;
-            animation: gradientShift 8s ease infinite;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            overflow: hidden;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* Efeito de letreiro (shimmer) no título */
-        .hero-title {
-            font-size: 3.8rem;
-            font-weight: 800;
-            background: linear-gradient(120deg, #fff, #ffd966, #ffb347, #fff);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: shine 3s linear infinite;
-            text-shadow: none;
-            letter-spacing: 2px;
-        }
-        
-        @keyframes shine {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            font-weight: 500;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-        }
-        
-        /* Botões principais */
-        .btn-primary {
-            background-color: var(--secondary-color);
-            border: none;
-            padding: 12px 30px;
-            font-weight: 600;
-            color: var(--dark-color);
-            transition: all 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #e67e22;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            color: white;
-        }
-        
-        /* Seções */
-        .section-title {
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            position: relative;
-            display: inline-block;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 4px;
-            background-color: var(--secondary-color);
-            bottom: -10px;
-            left: 0;
-            border-radius: 2px;
-        }
-        
-        /* Cards de produto */
-        .product-card {
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            background-color: white;
-        }
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        .product-img {
-            height: 200px;
-            object-fit: cover;
-            width: 100%;
-        }
-        .product-title {
-            font-weight: 600;
-            color: var(--dark-color);
-            margin-top: 15px;
-        }
-        .product-price {
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        
-        /* Galeria */
-        .gallery-img {
-            height: 180px;
-            object-fit: cover;
-            width: 100%;
-            border-radius: 8px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .gallery-img:hover {
-            transform: scale(1.05);
-        }
-        
-        /* Formulário */
-        .form-section {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary-color), #b45f1b);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        .social-icon {
-            color: white;
-            font-size: 1.5rem;
-            margin-right: 15px;
-            transition: all 0.3s;
-        }
-        .social-icon:hover {
-            color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-        
-        /* Carrinho */
-        .cart-item {
-            border-bottom: 1px solid #eee;
-            padding: 15px 0;
-        }
-        .cart-total {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-        }
-        .modal-content {
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        
-        /* Vídeos */
-        .video-section {
-            padding: 60px 0;
-            background-color: white;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* BOTÕES FLUTUANTES FIXOS (Instagram e WhatsApp) */
-        .float-buttons {
-            position: fixed;
-            bottom: 30px;
-            left: 0;
-            right: 0;
-            pointer-events: none;
-            z-index: 1050;
-        }
-        .btn-float {
-            pointer-events: auto;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-            color: white;
-            text-decoration: none;
-            position: absolute;
-        }
-        .btn-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-        .btn-float-left {
-            left: 20px;
-            background: linear-gradient(45deg, #f09433, #d62976, #962fbf);
-        }
-        .btn-float-right {
-            right: 20px;
-            background-color: #25D366;
-        }
-        /* Responsivo: ajustar posição */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.2rem; }
-            .banner-img { width: 60px; height: 60px; }
-            .banner-name { font-size: 0.7rem; }
-            .btn-float { width: 48px; height: 48px; font-size: 1.8rem; }
-            .btn-float-left { left: 15px; bottom: 15px; }
-            .btn-float-right { right: 15px; bottom: 15px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sérginhos Centro Automotivo - Pneus, Rodas e Serviços em Taubaté</title>
+<meta name="description" content="Compre pneus novos, semi-novos, rodas e acessórios automotivos. Conserto de pneu furado, calibragem, alinhamento e mais. Atendimento via WhatsApp em Taubaté.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" href="https://duyn491kcolsw.cloudfront.net/files/0m/0ma/0ma2bg.svg" type="image/svg+xml">
+<style>
+  :root{
+    --dark-900:#0f172a;
+    --dark-800:#1e293b;
+    --dark-700:#334155;
+    --orange-900:#7c2d12;
+    --orange-700:#c2410c;
+    --orange-600:#ea580c;
+    --orange-500:#f97316;
+    --orange-100:#ffedd5;
+    --yellow-500:#facc15;
+    --yellow-400:#fde047;
+    --red-500:#ef4444;
+    --red-600:#dc2626;
+    --gray-900:#0f172a;
+    --gray-700:#334155;
+    --gray-500:#64748b;
+    --gray-300:#cbd5e1;
+    --gray-100:#f1f5f9;
+    --gray-50:#f8fafc;
+    --white:#ffffff;
+    --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+    --shadow-md:0 4px 16px rgba(0,0,0,.08);
+    --shadow-lg:0 12px 32px rgba(0,0,0,.12);
+    --radius:14px;
+    --radius-sm:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--gray-50);color:var(--gray-900);line-height:1.5;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  input{font-family:inherit}
+
+  /* ===== TOP BAR ===== */
+  .topbar{background:var(--dark-900);color:#fff;font-size:.82rem;padding:8px 0}
+  .topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .topbar strong{color:var(--yellow-400)}
+  .topbar-right{display:flex;gap:18px;align-items:center}
+  .topbar-right a{display:flex;align-items:center;gap:6px;opacity:.9;transition:.2s}
+  .topbar-right a:hover{opacity:1;color:var(--yellow-400)}
+
+  /* ===== HEADER ===== */
+  header{background:#fff;position:sticky;top:0;z-index:900;box-shadow:var(--shadow-sm);border-bottom:1px solid var(--gray-100)}
+  .header-main{max-width:1280px;margin:0 auto;padding:16px 20px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+  .logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+  .logo-mark{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--orange-600),var(--orange-700));display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#fff;font-weight:900;box-shadow:0 4px 14px rgba(234,88,12,.35)}
+  .logo-text{display:flex;flex-direction:column;line-height:1.1}
+  .logo-text strong{font-size:1.15rem;font-weight:900;color:var(--dark-900);letter-spacing:-.02em}
+  .logo-text span{font-size:.72rem;color:var(--orange-600);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+  .search{position:relative;background:var(--gray-100);border-radius:999px;display:flex;align-items:center;padding:0 6px 0 18px;transition:.2s;border:2px solid transparent}
+  .search:focus-within{background:#fff;border-color:var(--orange-500);box-shadow:0 0 0 4px rgba(249,115,22,.12)}
+  .search svg{color:var(--gray-500);flex-shrink:0}
+  .search input{flex:1;border:none;background:transparent;padding:14px 12px;font-size:.95rem;outline:none;color:var(--gray-900)}
+  .search input::placeholder{color:var(--gray-500)}
+  .search button{background:var(--orange-600);color:#fff;border-radius:999px;padding:10px 22px;font-weight:700;font-size:.88rem;transition:.2s}
+  .search button:hover{background:var(--orange-700)}
+
+  .header-actions{display:flex;align-items:center;gap:14px}
+  .icon-btn{position:relative;width:46px;height:46px;border-radius:12px;background:var(--gray-100);display:flex;align-items:center;justify-content:center;transition:.2s;color:var(--gray-700)}
+  .icon-btn:hover{background:var(--orange-100);color:var(--orange-700)}
+  .cart-btn{background:linear-gradient(135deg,var(--orange-600),var(--orange-700));color:#fff;position:relative;padding:0 18px;height:46px;border-radius:12px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:.92rem;transition:.2s;box-shadow:0 4px 14px rgba(234,88,12,.3)}
+  .cart-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(234,88,12,.4)}
+  .cart-count{position:absolute;top:-6px;right:-6px;background:var(--red-500);color:#fff;min-width:22px;height:22px;border-radius:999px;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 6px;border:2px solid #fff;transform:scale(0);transition:.25s cubic-bezier(.34,1.56,.64,1)}
+  .cart-count.show{transform:scale(1)}
+
+  /* ===== NAV CATEGORIES ===== */
+  .nav-cats{background:#fff;border-top:1px solid var(--gray-100);overflow-x:auto;scrollbar-width:none}
+  .nav-cats::-webkit-scrollbar{display:none}
+  .nav-cats-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;gap:6px}
+  .cat-btn{padding:14px 18px;font-size:.9rem;font-weight:600;color:var(--gray-700);white-space:nowrap;border-bottom:3px solid transparent;display:flex;align-items:center;gap:8px;transition:.2s}
+  .cat-btn:hover{color:var(--orange-600);background:var(--gray-50)}
+  .cat-btn.active{color:var(--orange-700);border-bottom-color:var(--orange-600)}
+
+  /* ===== HERO ===== */
+  .hero{max-width:1280px;margin:24px auto 0;padding:0 20px}
+  .hero-inner{border-radius:var(--radius);background:linear-gradient(135deg,rgba(15,23,42,.92),rgba(194,65,12,.85)),url('https://1a77c86d8e.cbaul-cdnwnd.com/cb5d43124e35a96ba527c17938184666/200000007-656ac656ae/images-pexels-com-photos-3862627-pexels-photo-3862627-auto-compress-cs-tinysrgb-dpr-2-h-650-w-940.jpeg?ph=1a77c86d8e') center/cover no-repeat;color:#fff;padding:56px 48px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .hero-inner::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(250,204,21,.35),transparent 70%)}
+  .hero-inner::after{content:'🛞';position:absolute;bottom:-30px;right:30px;font-size:180px;opacity:.12;transform:rotate(-15deg)}
+  .hero-content{position:relative;z-index:1}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600;margin-bottom:18px;border:1px solid rgba(255,255,255,.25)}
+  .hero h1{font-size:2.6rem;font-weight:900;line-height:1.1;letter-spacing:-.03em;margin-bottom:16px}
+  .hero h1 .highlight{background:linear-gradient(180deg,transparent 60%,rgba(249,115,22,.55) 60%);padding:0 4px}
+  .hero p{font-size:1.05rem;opacity:.92;margin-bottom:28px;max-width:520px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:12px;font-weight:700;font-size:.95rem;transition:.2s;cursor:pointer;border:none}
+  .btn-primary{background:var(--yellow-500);color:var(--dark-900);box-shadow:0 6px 18px rgba(250,204,21,.4)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(250,204,21,.5);background:var(--yellow-400)}
+  .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.25)}
+
+  .hero-benefits{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative;z-index:1}
+  .benefit{background:rgba(255,255,255,.13);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-sm);padding:16px;display:flex;gap:12px;align-items:center;transition:.2s}
+  .benefit:hover{background:rgba(255,255,255,.2);transform:translateY(-3px)}
+  .benefit .ico{width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+  .benefit strong{display:block;font-size:.88rem;font-weight:700}
+  .benefit span{font-size:.75rem;opacity:.85}
+
+  /* ===== SECTION ===== */
+  .section{max-width:1280px;margin:56px auto;padding:0 20px}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+  .section-head h2{font-size:1.75rem;font-weight:900;letter-spacing:-.02em;color:var(--gray-900)}
+  .section-head p{color:var(--gray-500);font-size:.95rem;margin-top:4px}
+  .see-all{color:var(--orange-600);font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:6px;transition:.2s}
+  .see-all:hover{gap:10px}
+
+  /* ===== CATEGORY CARDS ===== */
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+  .cat-card{background:#fff;border-radius:var(--radius);padding:24px 16px;text-align:center;border:2px solid var(--gray-100);transition:.25s;cursor:pointer}
+  .cat-card:hover{border-color:var(--orange-500);transform:translateY(-4px);box-shadow:var(--shadow-md)}
+  .cat-card .emoji{font-size:2.6rem;margin-bottom:10px;display:block}
+  .cat-card strong{font-size:.95rem;font-weight:700;color:var(--gray-900)}
+  .cat-card small{display:block;color:var(--gray-500);font-size:.78rem;margin-top:2px}
+
+  /* ===== PRODUCT GRID ===== */
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+  .product{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--gray-100);transition:.25s;display:flex;flex-direction:column;position:relative}
+  .product:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--orange-100)}
+  .product-media{aspect-ratio:1/1;background:linear-gradient(135deg,var(--gray-50),var(--gray-100));display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden}
+  .product-media::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(249,115,22,.1),transparent 60%)}
+  .product-tag{position:absolute;top:12px;left:12px;background:var(--orange-500);color:#fff;padding:4px 10px;border-radius:999px;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;z-index:2}
+  .product-tag.promo{background:var(--red-500)}
+  .product-tag.new{background:var(--orange-600)}
+  .product-tag.service{background:var(--dark-800)}
+  .product-info{padding:16px;display:flex;flex-direction:column;flex:1;gap:8px}
+  .product-cat{font-size:.72rem;font-weight:700;color:var(--orange-600);text-transform:uppercase;letter-spacing:.05em}
+  .product-name{font-size:.98rem;font-weight:700;color:var(--gray-900);line-height:1.3;min-height:2.6em}
+  .product-unit{font-size:.8rem;color:var(--gray-500)}
+  .product-price-row{display:flex;align-items:baseline;gap:6px;margin-top:auto;flex-wrap:wrap}
+  .product-price{font-size:1.35rem;font-weight:900;color:var(--orange-700);letter-spacing:-.02em}
+  .product-old{font-size:.85rem;color:var(--gray-500);text-decoration:line-through}
+  .product-price.consult{font-size:1rem;color:var(--dark-800);font-weight:800}
+  .product-actions{display:flex;gap:8px;margin-top:10px}
+  .add-btn{flex:1;background:var(--orange-600);color:#fff;padding:12px;border-radius:10px;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+  .add-btn:hover{background:var(--orange-700)}
+  .add-btn:active{transform:scale(.97)}
+  .add-btn.added{background:var(--dark-900)}
+  .add-btn.service{background:var(--dark-800)}
+  .add-btn.service:hover{background:var(--dark-900)}
+
+  /* ===== BANNER STRIP ===== */
+  .promo-strip{max-width:1280px;margin:56px auto;padding:0 20px}
+  .promo-strip-inner{background:linear-gradient(135deg,#dc2626,#b91c1c);border-radius:var(--radius);padding:36px 40px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;box-shadow:0 12px 32px rgba(220,38,38,.25);position:relative;overflow:hidden}
+  .promo-strip-inner::after{content:'🔥';position:absolute;right:-10px;bottom:-20px;font-size:140px;opacity:.15}
+  .promo-strip h3{font-size:1.6rem;font-weight:900;margin-bottom:6px;letter-spacing:-.02em}
+  .promo-strip p{opacity:.95;font-size:.95rem}
+  .promo-strip .btn{background:#fff;color:var(--red-600);position:relative;z-index:1}
+  .promo-strip .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.15)}
+
+  /* ===== SERVICES HIGHLIGHT ===== */
+  .services-section{max-width:1280px;margin:56px auto;padding:0 20px}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+  .service-box{background:#fff;border-radius:var(--radius);padding:28px 24px;border:2px solid var(--gray-100);transition:.25s;display:flex;flex-direction:column;gap:10px}
+  .service-box:hover{border-color:var(--orange-500);transform:translateY(-4px);box-shadow:var(--shadow-md)}
+  .service-box .ico{font-size:2.4rem;margin-bottom:4px}
+  .service-box h3{font-size:1.05rem;font-weight:800;color:var(--dark-900)}
+  .service-box p{font-size:.88rem;color:var(--gray-500);flex:1;line-height:1.5}
+  .service-box .btn-wpp{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--dark-900);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;font-size:.85rem;transition:.2s;margin-top:8px}
+  .service-box .btn-wpp:hover{background:var(--orange-700)}
+
+  /* ===== ABOUT STRIP ===== */
+  .about-strip{max-width:1280px;margin:56px auto;padding:0 20px}
+  .about-strip-inner{background:#fff;border-radius:var(--radius);padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;border:1px solid var(--gray-100);box-shadow:var(--shadow-md)}
+  .about-strip img{width:100%;border-radius:var(--radius-sm);aspect-ratio:16/10;object-fit:cover}
+  .about-strip h2{font-size:1.75rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;color:var(--dark-900)}
+  .about-strip p{color:var(--gray-700);margin-bottom:12px;line-height:1.7}
+  .about-strip .check-list{list-style:none;margin-top:14px}
+  .about-strip .check-list li{padding:6px 0;color:var(--gray-700);font-size:.92rem;display:flex;gap:10px;align-items:flex-start}
+  .about-strip .check-list li::before{content:"✓";color:var(--orange-600);font-weight:900;flex-shrink:0}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--dark-900);color:#fff;margin-top:80px;padding:56px 0 0}
+  .footer-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px}
+  .footer-col h4{font-size:.9rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px;color:var(--yellow-400)}
+  .footer-col p,.footer-col a{color:rgba(255,255,255,.75);font-size:.9rem;line-height:2;display:block;transition:.2s}
+  .footer-col a:hover{color:var(--yellow-400)}
+  .footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .footer-logo .logo-mark{box-shadow:none}
+  .footer-logo strong{color:#fff}
+  .footer-logo span{color:var(--yellow-400)}
+  .footer-bottom{max-width:1280px;margin:40px auto 0;padding:24px 20px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:.85rem;color:rgba(255,255,255,.6)}
+  .social{display:flex;gap:10px}
+  .social a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:.2s}
+  .social a:hover{background:var(--orange-600);transform:translateY(-2px)}
+
+  /* ===== CART DRAWER ===== */
+  .overlay{position:fixed;inset:0;background:rgba(15,23,42,.5);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:.3s;z-index:1000}
+  .overlay.show{opacity:1;pointer-events:auto}
+  .cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:#fff;z-index:1001;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.15)}
+  .cart-drawer.open{transform:translateX(0)}
+  .cart-head{padding:20px 24px;border-bottom:1px solid var(--gray-100);display:flex;justify-content:space-between;align-items:center}
+  .cart-head h3{font-size:1.15rem;font-weight:800}
+  .cart-head .close{width:38px;height:38px;border-radius:10px;background:var(--gray-100);display:flex;align-items:center;justify-content:center;transition:.2s;font-size:1.2rem}
+  .cart-head .close:hover{background:var(--red-500);color:#fff}
+  .cart-items{flex:1;overflow-y:auto;padding:16px 24px}
+  .cart-empty{text-align:center;padding:60px 20px;color:var(--gray-500)}
+  .cart-empty .emoji{font-size:4rem;margin-bottom:16px;opacity:.4}
+  .cart-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--gray-100);animation:fadeIn .3s}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .cart-item-media{width:64px;height:64px;border-radius:10px;background:var(--gray-100);display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0}
+  .cart-item-info{flex:1;min-width:0}
+  .cart-item-info strong{display:block;font-size:.9rem;font-weight:700;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cart-item-info small{color:var(--gray-500);font-size:.78rem}
+  .cart-item-price{color:var(--orange-700);font-weight:800;font-size:.95rem;margin-top:4px}
+  .qty-ctrl{display:flex;align-items:center;gap:0;background:var(--gray-100);border-radius:8px;overflow:hidden;margin-top:6px;width:fit-content}
+  .qty-ctrl button{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--gray-700);transition:.15s}
+  .qty-ctrl button:hover{background:var(--orange-600);color:#fff}
+  .qty-ctrl span{min-width:32px;text-align:center;font-weight:700;font-size:.88rem}
+  .cart-item .remove{align-self:flex-start;color:var(--gray-500);font-size:1.2rem;padding:4px;transition:.2s}
+  .cart-item .remove:hover{color:var(--red-500)}
+  .cart-foot{padding:20px 24px;border-top:1px solid var(--gray-100);background:var(--gray-50)}
+  .cart-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+  .cart-total span{font-size:.9rem;color:var(--gray-500);font-weight:600}
+  .cart-total strong{font-size:1.5rem;font-weight:900;color:var(--orange-700);letter-spacing:-.02em}
+  .checkout-btn{width:100%;background:linear-gradient(135deg,var(--orange-600),var(--orange-700));color:#fff;padding:16px;border-radius:12px;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;gap:10px;transition:.2s;box-shadow:0 6px 18px rgba(234,88,12,.35)}
+  .checkout-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(234,88,12,.45)}
+  .checkout-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+
+  /* ===== TOAST ===== */
+  .toast-wrap{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:2000;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+  .toast{background:var(--dark-900);color:#fff;padding:14px 22px;border-radius:12px;font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow-lg);animation:slideUp .3s cubic-bezier(.34,1.56,.64,1);pointer-events:auto;border-left:4px solid var(--orange-500)}
+  .toast.error{border-left-color:var(--red-500)}
+  @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1024px){
+    .hero-inner{grid-template-columns:1fr;padding:40px 28px}
+    .hero h1{font-size:2.1rem}
+    .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
+    .about-strip-inner{grid-template-columns:1fr;padding:28px}
+  }
+  @media (max-width:768px){
+    .header-main{grid-template-columns:1fr auto;gap:12px}
+    .search{grid-column:1/-1;order:3;margin-top:4px}
+    .cart-btn span.label{display:none}
+    .cart-btn{padding:0 14px}
+    .hero h1{font-size:1.7rem}
+    .hero-benefits{grid-template-columns:1fr}
+    .topbar-right span.hide-mobile{display:none}
+    .section{margin:40px auto}
+    .section-head h2{font-size:1.4rem}
+    .product-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+    .product-media{font-size:3.5rem}
+    .product-name{font-size:.88rem}
+    .product-price{font-size:1.15rem}
+    .footer-inner{grid-template-columns:1fr;gap:28px}
+    .promo-strip-inner{padding:28px 24px}
+    .promo-strip h3{font-size:1.3rem}
+  }
+  @media (max-width:420px){
+    .logo-text strong{font-size:1rem}
+    .cat-grid{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
 </head>
 <body>
 
-    <!-- BANNER DE CONTATO SUPERIOR (BEM VISÍVEL, TAMANHO GRANDE) -->
-    <div class="contact-top-bar">
-        <a href="tel:554198309145">
-            <i class="fas fa-phone-alt"></i> 
-            <span>📞 CONTATO: (41) 9830-9145</span>
-            <i class="fab fa-whatsapp"></i>
-        </a>
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div>🛞 <strong>Instalação grátis</strong> na compra de 4 pneus · Entrega em Taubaté</div>
+    <div class="topbar-right">
+      <a href="tel:+551236337151">📞 <span class="hide-mobile">(12) 3633-7151</span></a>
+      <a href="https://wa.me/5512997690407" target="_blank">💬 <span class="hide-mobile">WhatsApp</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-main">
+    <a href="#" class="logo">
+      <div class="logo-mark">🏁</div>
+      <div class="logo-text">
+        <strong>SÉRGINHOS</strong>
+        <span>Taubaté · Centro Automotivo</span>
+      </div>
+    </a>
+
+    <div class="search">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar pneu aro 15, calota, alinhamento...">
+      <button type="button">Buscar</button>
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Shekinah Energéticos</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Produtos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery">Galeria</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#video">Vídeo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#register">Cadastro</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Banner de produtos em destaque (topo) -->
-    <div class="top-banner">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-6 col-md-2 banner-item">
-                    <img src="fotoeliene11.png" class="banner-img" alt="Energia Total HD">
-                    <div class="banner-name">Energia Total HD</div>
-                </div>
-                <div class="col-6 col-md-2 banner-item">
-                    <img src="fotoeliene33.png" class="banner-img" alt="Alga Litho">
-                    <div class="banner-name">AlgaLitho</div>
-                </div>
-                <div class="col-6 col-md-2 banner-item">
-                    <img src="creatina22.png" class="banner-img" alt="Creatina">
-                    <div class="banner-name">Creatina</div>
-                </div>
-                <div class="col-6 col-md-2 banner-item">
-                    <img src="energia feminino1.png" class="banner-img" alt="Energia Feminina">
-                    <div class="banner-name">Energia Feminina</div>
-                </div>
-                <div class="col-6 col-md-2 banner-item">
-                    <img src="fotoomega.png" class="banner-img" alt="Ômega3 HD">
-                    <div class="banner-name">Ômega3 HD</div>
-                </div>
-                <div class="col-6 col-md-2 banner-item">
-                    <img src="AMEBA1.png" class="banner-img" alt="Cúrcuma HD">
-                    <div class="banner-name">Cúrcuma HD</div>
-                </div>
-            </div>
-        </div>
+    <div class="header-actions">
+      <a href="https://wa.me/5512997690407" target="_blank" class="icon-btn" title="Fale conosco">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </a>
+      <button class="cart-btn" id="openCart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="label">Carrinho</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
     </div>
+  </div>
 
-    <!-- Hero Section Modernizada com letreiro animado -->
-    <section class="hero-section" id="home">
-        <div class="container">
-            <h1 class="hero-title">Shekinah Energéticos</h1>
-            <p class="hero-subtitle">Os melhores produtos energéticos para revenda em todo o Brasil</p>
-            <a href="#products" class="btn btn-primary btn-lg">Ver Produtos</a>
-        </div>
-    </section>
-
-    <!-- Produtos - mantido integralmente -->
-    <section class="py-5" id="products">
-        <div class="container">
-            <h2 class="text-center section-title">Nossos Produtos</h2>
-            <div class="row">
-                <!-- Produto 1 -->
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="fotoeliene11.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">Energia Total HD</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-1">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="1" data-name="Energia Total HD" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Produto 2 -->
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="fotoeliene33.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">Alga Litho</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-2">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="2" data-name="Alga Litho" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Produto 3 -->
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="creatina22.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">Creatina Monohidratada</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-3">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="3" data-name="Creatina Monohidratada" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Produto 4 -->
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="produto5.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">SELLOWIN C+ 100% Natural</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-4">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="4" data-name="SELLOWIN C+" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Produto 5 -->
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="energia feminino1.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">ENERGIA FEMININA HD</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-5">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="5" data-name="ENERGIA FEMININA HD" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Produto 6 -->
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="maicon11.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">HD MENTA COM PRÓPOLIS</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-6">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="6" data-name="HD MENTA COM PRÓPOLIS" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Segunda linha de produtos -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="maicon22.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">ANTITRANSPIRANTE NATURAL HD FAVA TONKA</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-7">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="7" data-name="ANTITRANSPIRANTE FAVA TONKA" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="maicon33.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">ANTITRANSPIRANTE NATURAL HD SPORT MINT</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-8">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="8" data-name="ANTITRANSPIRANTE SPORT MINT" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="eliene11111.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">FOSFOLITHO HD</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-9">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="9" data-name="FOSFOLITHO HD" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="AMEBA1.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">CÚRCUNA HD</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-10">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="10" data-name="CÚRCUNA HD" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="AMEBA2.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">BIOLITHO HD</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-11">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="11" data-name="BIOLITHO HD" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="AMEBA5.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">CREATINA POWER HD</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-12">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="12" data-name="CREATINA POWER HD" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="fotoomega.png" class="product-img">
-                        <div class="p-3">
-                            <h3 class="product-title">Ômega3 HD</h3>
-                            <p class="product-price">R$ A combinar</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="number" class="form-control w-50" min="1" value="1" id="quantity-13">
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="13" data-name="Ômega3 HD" data-price="0">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
-                    <i class="fas fa-shopping-cart me-2"></i>Ver Carrinho (<span id="cart-count">0</span>)
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galeria -->
-    <section class="py-5 bg-light" id="gallery">
-        <div class="container">
-            <h2 class="text-center section-title">Galeria de Produtos</h2>
-            <div class="row">
-                <div class="col-md-4 col-6 mb-4"><img src="fotoeliene55.png" class="gallery-img"></div>
-                <div class="col-md-4 col-6 mb-4"><img src="fotoeliene55.png" class="gallery-img"></div>
-                <div class="col-md-4 col-6 mb-4"><img src="fotoeliene55.png" class="gallery-img"></div>
-                <div class="col-md-4 col-6 mb-4"><img src="fotoeliene55.png" class="gallery-img"></div>
-                <div class="col-md-4 col-6 mb-4"><img src="fotoeliene55.png" class="gallery-img"></div>
-                <div class="col-md-4 col-6 mb-4"><img src="fotoeliene55.png" class="gallery-img"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vídeos -->
-    <section class="video-section" id="video">
-        <div class="container">
-            <h2 class="text-center section-title">PROGRAMA SHEKINAH ENERGÉTICOS</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8"><div class="video-container"><iframe src="https://www.youtube.com/embed/DKf9rhsTYn0" allowfullscreen></iframe></div></div>
-            </div>
-            <div class="row justify-content-center mt-4">
-                <div class="col-lg-8"><div class="video-container"><iframe src="https://www.youtube.com/embed/MNF3t0wa00o" allowfullscreen></iframe></div></div>
-            </div>
-            <div class="row justify-content-center mt-4">
-                <div class="col-lg-8"><div class="video-container"><iframe src="https://www.youtube.com/embed/TsWaH0dCsqk" allowfullscreen></iframe></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cadastro -->
-    <section class="py-5" id="register">
-        <div class="container">
-            <h2 class="text-center section-title">Cadastro de Clientes</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="form-section">
-                        <form id="clientForm">
-                            <div class="row">
-                                <div class="col-md-6 mb-3"><label class="form-label">Nome Completo*</label><input type="text" class="form-control" id="name" required></div>
-                                <div class="col-md-6 mb-3"><label class="form-label">CPF*</label><input type="text" class="form-control" id="cpf" required></div>
-                            </div>
-                            <div class="mb-3"><label class="form-label">CNPJ (se tiver)</label><input type="text" class="form-control" id="cnpj"></div>
-                            <div class="mb-3"><label class="form-label">E-mail*</label><input type="email" class="form-control" id="email" required></div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3"><label class="form-label">Telefone*</label><input type="tel" class="form-control" id="phone" required></div>
-                                <div class="col-md-6 mb-3"><label class="form-label">Celular/WhatsApp*</label><input type="tel" class="form-control" id="cellphone" required></div>
-                            </div>
-                            <div class="mb-3"><label class="form-label">Endereço*</label><input type="text" class="form-control" id="address" required></div>
-                            <div class="row">
-                                <div class="col-md-4 mb-3"><label class="form-label">Cidade*</label><input type="text" class="form-control" id="city" required></div>
-                                <div class="col-md-4 mb-3"><label class="form-label">Estado*</label><select class="form-select" id="state" required><option>PR</option><option>SP</option><option>RJ</option><option>MG</option></select></div>
-                                <div class="col-md-4 mb-3"><label class="form-label">CEP*</label><input type="text" class="form-control" id="cep" required></div>
-                            </div>
-                            <div class="mb-3"><label class="form-label">Redes Sociais</label><input type="text" class="form-control" id="social"></div>
-                            <div class="mb-3"><label class="form-label">Observações</label><textarea class="form-control" id="notes" rows="3"></textarea></div>
-                            <div class="text-center"><button type="submit" class="btn btn-primary">Cadastrar</button></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contato -->
-    <section class="py-5 bg-light" id="contact">
-        <div class="container">
-            <h2 class="text-center section-title">Contato</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <h4>Entre em contato</h4>
-                            <p><i class="fas fa-phone me-2"></i> (41) 9830-9145</p>
-                            <p><i class="fas fa-envelope me-2"></i> shekinahenergetico@gmail.com.br</p>
-                            <p><i class="fas fa-map-marker-alt me-2"></i> Curitiba - Paraná</p>
-                            <div class="mt-4">
-                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="text-center">
-        <div class="container">
-            <div class="mb-4"><a href="#" class="navbar-brand">Shekinah Energéticos</a></div>
-            <p>Revenda autorizada dos melhores produtos energéticos do Brasil</p>
-            <p>© 2025 Produzido pela tvvalenarede.com.br | WhatsApp 12-99769-0407</p>
-        </div>
-    </footer>
-
-    <!-- Modais do Carrinho -->
-    <div class="modal fade" id="cartModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header"><h5 class="modal-title">Carrinho</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-                <div class="modal-body"><div id="cart-items"><p class="text-center">Seu carrinho está vazio</p></div>
-                <div class="d-flex justify-content-between mt-4"><h5 class="cart-total">Total: R$ <span id="cart-total">0,00</span></h5><button class="btn btn-primary" id="checkout-btn">Finalizar Pedido</button></div></div>
-            </div>
-        </div>
+  <nav class="nav-cats">
+    <div class="nav-cats-inner" id="catNav">
+      <button class="cat-btn active" data-cat="todos">🏠 Todos</button>
+      <button class="cat-btn" data-cat="pneus-novos">🛞 Pneus Novos</button>
+      <button class="cat-btn" data-cat="pneus-semi">♻️ Semi-novos</button>
+      <button class="cat-btn" data-cat="rodas">⚙️ Rodas & Aros</button>
+      <button class="cat-btn" data-cat="acessorios">🔧 Acessórios</button>
+      <button class="cat-btn" data-cat="servicos">🛠️ Serviços</button>
     </div>
-    <div class="modal fade" id="checkoutModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header"><h5>Finalizar Pedido</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-                <div class="modal-body">
-                    <form id="orderForm">
-                        <input type="text" class="form-control mb-2" placeholder="Nome completo*" id="client-name" required>
-                        <input type="email" class="form-control mb-2" placeholder="E-mail*" id="client-email" required>
-                        <input type="tel" class="form-control mb-2" placeholder="WhatsApp*" id="client-phone" required>
-                        <textarea class="form-control mb-2" rows="2" placeholder="Endereço de entrega*" id="delivery-address" required></textarea>
-                        <textarea class="form-control mb-2" rows="2" placeholder="Observações" id="order-notes"></textarea>
-                        <button type="submit" class="btn btn-primary w-100">Enviar Pedido</button>
-                    </form>
-                </div>
-            </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">🎉 <span>Ofertas da semana já disponíveis</span></div>
+      <h1>Seu centro automotivo <span class="highlight">completo</span> em Taubaté.</h1>
+      <p>Pneus novos e semi-novos, rodas esportivas, acessórios e serviços especializados. Compre online e retire na loja, ou peça entrega em Taubaté.</p>
+      <div class="hero-cta">
+        <a href="#produtos" class="btn btn-primary">🛞 Ver ofertas</a>
+        <a href="https://wa.me/5512997690407" target="_blank" class="btn btn-ghost">💬 Falar no WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-benefits">
+      <div class="benefit">
+        <div class="ico">🚚</div>
+        <div><strong>Entrega em Taubaté</strong><span>Rápida e segura</span></div>
+      </div>
+      <div class="benefit">
+        <div class="ico">🔧</div>
+        <div><strong>Instalação grátis</strong><span>Na compra de 4 pneus</span></div>
+      </div>
+      <div class="benefit">
+        <div class="ico">💳</div>
+        <div><strong>Pague como quiser</strong><span>Pix, cartão ou dinheiro</span></div>
+      </div>
+      <div class="benefit">
+        <div class="ico">🛠️</div>
+        <div><strong>Conserto de pneu</strong><span>Atendimento rápido</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIAS ============ -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Compre por categoria</h2>
+      <p>Encontre o que seu carro precisa</p>
+    </div>
+  </div>
+  <div class="cat-grid" id="catGrid"></div>
+</section>
+
+<!-- ============ PRODUTOS ============ -->
+<section class="section" id="produtos">
+  <div class="section-head">
+    <div>
+      <h2 id="productsTitle">Ofertas da semana</h2>
+      <p id="productsSub">Os melhores preços em pneus e serviços</p>
+    </div>
+    <a href="#" class="see-all">Ver todos →</a>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- ============ SERVIÇOS HIGHLIGHT ============ -->
+<section class="services-section">
+  <div class="section-head">
+    <div>
+      <h2>Nossos serviços</h2>
+      <p>Conserto, calibragem e muito mais — das 8h às 22h</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-box">
+      <div class="ico">🛠️</div>
+      <h3>Conserto de Pneu Furado</h3>
+      <p>Reparo profissional com vulcanização. Atendimento imediato para você voltar às ruas com segurança.</p>
+      <a href="https://wa.me/5512997690407?text=Ol%C3%A1!%20Preciso%20de%20conserto%20de%20pneu%20furado." target="_blank" class="btn-wpp">💬 Agendar</a>
+    </div>
+    <div class="service-box">
+      <div class="ico">💨</div>
+      <h3>Calibragem com Nitrogênio</h3>
+      <p>Calibragem precisa com nitrogênio para maior durabilidade e economia de combustível.</p>
+      <a href="https://wa.me/5512997690407?text=Ol%C3%A1!%20Gostaria%20de%20calibrar%20os%20pneus." target="_blank" class="btn-wpp">💬 Agendar</a>
+    </div>
+    <div class="service-box">
+      <div class="ico">⚖️</div>
+      <h3>Alinhamento e Balanceamento</h3>
+      <p>Alinhamento 3D e balanceamento eletrônico para prolongar a vida útil dos seus pneus.</p>
+      <a href="https://wa.me/5512997690407?text=Ol%C3%A1!%20Preciso%20de%20alinhamento%20e%20balanceamento." target="_blank" class="btn-wpp">💬 Agendar</a>
+    </div>
+    <div class="service-box">
+      <div class="ico">🔄</div>
+      <h3>Troca de Pneus</h3>
+      <p>Troca completa com balanceamento incluso e descarte adequado dos pneus usados.</p>
+      <a href="https://wa.me/5512997690407?text=Ol%C3%A1!%20Preciso%20trocar%20os%20pneus." target="_blank" class="btn-wpp">💬 Agendar</a>
+    </div>
+    <div class="service-box">
+      <div class="ico">✏️</div>
+      <h3>Marcação de Pneus</h3>
+      <p>Personalização com marcação de letras nos pneus. Deixe seu carro com a sua cara.</p>
+      <a href="https://wa.me/5512997690407?text=Ol%C3%A1!%20Quero%20marcar%20meus%20pneus." target="_blank" class="btn-wpp">💬 Consultar</a>
+    </div>
+    <div class="service-box">
+      <div class="ico">♻️</div>
+      <h3>Recuperação de Pneus</h3>
+      <p>Recuperamos pneus em bom estado para prolongar a vida útil com segurança garantida.</p>
+      <a href="https://wa.me/5512997690407?text=Ol%C3%A1!%20Quero%20saber%20sobre%20recupera%C3%A7%C3%A3o%20de%20pneus." target="_blank" class="btn-wpp">💬 Consultar</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROMO STRIP ============ -->
+<section class="promo-strip">
+  <div class="promo-strip-inner">
+    <div>
+      <h3>🔥 Troca de 4 pneus com 20% OFF + alinhamento grátis</h3>
+      <p>Combo completo para você rodar com segurança. Oferta válida por tempo limitado!</p>
+    </div>
+    <button class="btn" onclick="scrollToProducts()">Aproveitar agora</button>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="about-strip">
+  <div class="about-strip-inner">
+    <img src="https://1a77c86d8e.cbaul-cdnwnd.com/cb5d43124e35a96ba527c17938184666/200000008-8ae2c8ae2e/images-pexels-com-photos-2402235-pexels-photo-2402235-auto-compress-cs-tinysrgb-dpr-2-h-650-w-940.jpeg?ph=1a77c86d8e" alt="Sérginhos Centro Automotivo">
+    <div>
+      <h2>Por que escolher a Sérginhos?</h2>
+      <p>Somos o seu balcão único para todas as necessidades automotivas em Taubaté. Do pneu novo ao conserto emergencial, cuidamos do seu carro como se fosse nosso.</p>
+      <ul class="check-list">
+        <li>Atendimento personalizado das 8h às 22h</li>
+        <li>Produtos de marcas reconhecidas com garantia</li>
+        <li>Serviços rápidos e preço justo</li>
+        <li>Localização central com fácil acesso e estacionamento</li>
+        <li>Compra online com retirada ou entrega em Taubaté</li>
+      </ul>
+      <div style="margin-top:20px">
+        <a href="https://wa.me/5512997690407" target="_blank" class="btn btn-primary">💬 Falar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <div class="logo-mark">🏁</div>
+        <div class="logo-text">
+          <strong>SÉRGINHOS</strong>
+          <span>Taubaté · Centro Automotivo</span>
         </div>
+      </div>
+      <p>Seu centro automotivo completo em Taubaté. Pneus, rodas, acessórios e serviços. Compre online e receba em casa com rapidez e segurança.</p>
     </div>
-
-    <!-- BOTÕES FLUTUANTES (Instagram e WhatsApp) -->
-    <div class="float-buttons">
-        <a href="https://www.instagram.com/shekinahenergenicos" target="_blank" class="btn-float btn-float-left" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://wa.me/554198309145" target="_blank" class="btn-float btn-float-right" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+    <div class="footer-col">
+      <h4>Institucional</h4>
+      <a href="#">Sobre nós</a>
+      <a href="#">Nossa loja</a>
+      <a href="#">Trabalhe conosco</a>
+      <a href="#">Política de privacidade</a>
     </div>
+    <div class="footer-col">
+      <h4>Ajuda</h4>
+      <a href="#">Central de atendimento</a>
+      <a href="#">Formas de pagamento</a>
+      <a href="#">Entrega e frete</a>
+      <a href="#">Trocas e devoluções</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p>📍 Rua Humaitá, 322 - Taubaté/SP</p>
+      <p>📞 (12) 3633-7151</p>
+      <p>💬 (12) 99769-0407</p>
+      <p>✉️ serginhopneusdetaubate@gmail.com</p>
+      <p>🕗 Seg a sáb: 8h às 22h</p>
+      <div class="social" style="margin-top:14px">
+        <a href="https://wa.me/5512997690407" target="_blank" title="WhatsApp">💬</a>
+        <a href="#" title="Instagram">📷</a>
+        <a href="#" title="Facebook">👍</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sérginhos Centro Automotivo de Taubaté. Todos os direitos reservados.</span>
+    <span>Feito com 🧡 em Taubaté</span>
+  </div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        let cart = [];
-        function saveCart() { localStorage.setItem('cart', JSON.stringify(cart)); }
-        function updateCart() {
-            const cartItems = document.getElementById('cart-items');
-            const cartCount = document.getElementById('cart-count');
-            const cartTotal = document.getElementById('cart-total');
-            let totalItems = cart.reduce((s,i)=>s+i.quantity,0);
-            cartCount.textContent = totalItems;
-            if(cart.length===0){ cartItems.innerHTML='<p class="text-center">Seu carrinho está vazio</p>'; cartTotal.textContent='0,00'; return; }
-            let html=''; let total=0;
-            cart.forEach(item=>{ let subtotal = item.price * item.quantity; total+=subtotal;
-                html+=`<div class="cart-item d-flex justify-content-between"><div><b>${item.name}</b><br>R$ ${item.price.toFixed(2)} x ${item.quantity}</div><div>R$ ${subtotal.toFixed(2)}<button class="btn btn-sm btn-outline-danger ms-2 remove-item" data-id="${item.id}"><i class="fas fa-trash"></i></button></div></div>`;
-            });
-            cartItems.innerHTML=html;
-            cartTotal.textContent=total.toFixed(2);
-            document.querySelectorAll('.remove-item').forEach(btn=>{ btn.addEventListener('click',function(){ cart = cart.filter(i=>i.id!=this.getAttribute('data-id')); updateCart(); saveCart(); }); });
-        }
-        document.addEventListener('DOMContentLoaded',()=>{
-            if(localStorage.getItem('cart')){ cart=JSON.parse(localStorage.getItem('cart')); updateCart(); }
-            document.querySelectorAll('.add-to-cart').forEach(btn=>{
-                btn.addEventListener('click',function(){
-                    let id=this.getAttribute('data-id'), name=this.getAttribute('data-name'), price=0, qty=parseInt(document.getElementById(`quantity-${id}`)?.value||1);
-                    let existing=cart.find(i=>i.id===id);
-                    if(existing) existing.quantity+=qty;
-                    else cart.push({id,name,price:0,quantity:qty});
-                    updateCart(); saveCart();
-                    alert(`${qty} x ${name} adicionado! Valor sob consulta.`);
-                });
-            });
-            document.getElementById('checkout-btn')?.addEventListener('click',()=>{
-                if(cart.length===0){ alert('Carrinho vazio'); return; }
-                bootstrap.Modal.getInstance(document.getElementById('cartModal')).hide();
-                new bootstrap.Modal(document.getElementById('checkoutModal')).show();
-            });
-            document.getElementById('orderForm')?.addEventListener('submit',function(e){
-                e.preventDefault();
-                let nome=document.getElementById('client-name').value, email=document.getElementById('client-email').value, fone=document.getElementById('client-phone').value, end=document.getElementById('delivery-address').value, obs=document.getElementById('order-notes').value;
-                let produtos = cart.map(p=>`${p.name} (${p.quantity} un)`).join(', ');
-                let msg = `Olá! Gostaria de finalizar o pedido:\n\nCliente: ${nome}\nEmail: ${email}\nWhatsApp: ${fone}\nEndereço: ${end}\nProdutos: ${produtos}\nObservações: ${obs}\n\nValores sob consulta, aguardo retorno.`;
-                window.open(`https://wa.me/554198309145?text=${encodeURIComponent(msg)}`,'_blank');
-                cart=[]; updateCart(); saveCart();
-                bootstrap.Modal.getInstance(document.getElementById('checkoutModal')).hide();
-                alert('Pedido enviado! Entraremos em contato via WhatsApp.');
-            });
-            document.getElementById('clientForm')?.addEventListener('submit',function(e){ e.preventDefault(); alert('Cadastro realizado!'); this.reset(); });
-        });
-    </script>
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" id="overlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>🛒 Seu carrinho</h3>
+    <button class="close" id="closeCart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cartTotal">R$ 0,00</strong>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Finalizar pelo WhatsApp
+    </button>
+  </div>
+</aside>
+
+<!-- ============ TOAST ============ -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script>
+/* =========================================================
+   🔴 CONFIGURAÇÃO CENTRAL
+   Número do WhatsApp que RECEBE os pedidos (DDI + DDD)
+   ========================================================= */
+const WHATSAPP_NUMBER = '5512997690407';
+
+/* =========================================================
+   DADOS — Categorias e Produtos
+   ========================================================= */
+const CATEGORIES = [
+  { id:'pneus-novos', name:'Pneus Novos',      emoji:'🛞', desc:'Aros 13 ao 18' },
+  { id:'pneus-semi',  name:'Pneus Semi-novos', emoji:'♻️', desc:'Economia com segurança' },
+  { id:'rodas',       name:'Rodas & Aros',     emoji:'⚙️', desc:'Esportivas e originais' },
+  { id:'acessorios',  name:'Acessórios',       emoji:'🔧', desc:'Calotas, válvulas' },
+  { id:'servicos',    name:'Serviços',         emoji:'🛠️', desc:'Conserto e calibragem' }
+];
+
+const PRODUCTS = [
+  /* ---------- PNEUS NOVOS ---------- */
+  { id:1,  cat:'pneus-novos', name:'Pneu Aro 13 165/70 R13 - Pirelli',       emoji:'🛞', price:189.90, old:229.90, unit:'Unidade',        tag:'promo' },
+  { id:2,  cat:'pneus-novos', name:'Pneu Aro 14 175/70 R14 - Goodyear',      emoji:'🛞', price:249.90, old:289.90, unit:'Unidade',        tag:'promo' },
+  { id:3,  cat:'pneus-novos', name:'Pneu Aro 15 185/65 R15 - Sailun',        emoji:'🛞', price:289.90, old:null,    unit:'Unidade',        tag:null },
+  { id:4,  cat:'pneus-novos', name:'Pneu Aro 15 195/55 R15 - Continental',   emoji:'🛞', price:329.90, old:null,    unit:'Unidade',        tag:null },
+  { id:5,  cat:'pneus-novos', name:'Pneu Aro 16 205/55 R16 - Kumho',         emoji:'🛞', price:349.90, old:399.90, unit:'Unidade',        tag:'promo' },
+  { id:6,  cat:'pneus-novos', name:'Pneu Aro 16 195/55 R16 - Bridgestone',   emoji:'🛞', price:389.90, old:null,    unit:'Unidade',        tag:null },
+  { id:7,  cat:'pneus-novos', name:'Pneu Aro 17 225/45 R17 - Pirelli P7',    emoji:'🛞', price:459.90, old:null,    unit:'Unidade',        tag:'new' },
+  { id:8,  cat:'pneus-novos', name:'Pneu Aro 18 235/40 R18 - Michelin',      emoji:'🛞', price:649.90, old:749.90, unit:'Unidade',        tag:'promo' },
+
+  /* ---------- PNEUS SEMI-NOVOS ---------- */
+  { id:9,  cat:'pneus-semi',  name:'Pneu Semi-novo Aro 13 165/70',           emoji:'♻️', price:89.90,  old:null,    unit:'Unidade',        tag:null },
+  { id:10, cat:'pneus-semi',  name:'Pneu Semi-novo Aro 14 175/70',           emoji:'♻️', price:119.90, old:149.90, unit:'Unidade',        tag:'promo' },
+  { id:11, cat:'pneus-semi',  name:'Pneu Semi-novo Aro 15 195/55',           emoji:'♻️', price:159.90, old:null,    unit:'Unidade',        tag:null },
+  { id:12, cat:'pneus-semi',  name:'Pneu Semi-novo Aro 16 205/55',           emoji:'♻️', price:199.90, old:229.90, unit:'Unidade',        tag:'promo' },
+
+  /* ---------- RODAS / AROS ---------- */
+  { id:13, cat:'rodas',       name:'Jogo Roda Aro 15 Esportiva (4 un)',      emoji:'⚙️', price:899.90,  old:1099.90, unit:'Jogo 4 rodas', tag:'promo' },
+  { id:14, cat:'rodas',       name:'Jogo Roda Aro 16 Preta Brilhante',       emoji:'⚙️', price:1099.90, old:null,    unit:'Jogo 4 rodas', tag:null },
+  { id:15, cat:'rodas',       name:'Jogo Roda Aro 14 Original',              emoji:'⚙️', price:699.90,  old:null,    unit:'Jogo 4 rodas', tag:null },
+  { id:16, cat:'rodas',       name:'Roda Aro 17 Cromada (unidade)',          emoji:'⚙️', price:1249.90, old:null,    unit:'Jogo 4 rodas', tag:'new' },
+
+  /* ---------- ACESSÓRIOS ---------- */
+  { id:17, cat:'acessorios',  name:'Calota Esportiva Aro 14 (jogo)',         emoji:'🔧', price:79.90,  old:null,    unit:'Jogo 4 un',    tag:null },
+  { id:18, cat:'acessorios',  name:'Calota Esportiva Aro 15 (jogo)',         emoji:'🔧', price:89.90,  old:null,    unit:'Jogo 4 un',    tag:null },
+  { id:19, cat:'acessorios',  name:'Válvula de Pneu (kit 4)',                emoji:'🔩', price:19.90,  old:null,    unit:'Kit 4 un',     tag:null },
+  { id:20, cat:'acessorios',  name:'Parafusos de Roda (kit 16)',             emoji:'🔩', price:49.90,  old:null,    unit:'Kit 16 un',    tag:null },
+  { id:21, cat:'acessorios',  name:'Tampa de Válvula Cromada',               emoji:'✨', price:24.90,  old:null,    unit:'Kit 4 un',     tag:'new' },
+
+  /* ---------- SERVIÇOS (Sob consulta) ---------- */
+  { id:22, cat:'servicos',    name:'Conserto de Pneu Furado',                emoji:'🛠️', price:0, old:null, unit:'A partir de',  tag:'service' },
+  { id:23, cat:'servicos',    name:'Calibragem de Pneus',                    emoji:'💨', price:0, old:null, unit:'Serviço',       tag:'service' },
+  { id:24, cat:'servicos',    name:'Alinhamento de Direção',                 emoji:'⚙️', price:0, old:null, unit:'Serviço',       tag:'service' },
+  { id:25, cat:'servicos',    name:'Balanceamento de Rodas',                 emoji:'⚖️', price:0, old:null, unit:'Serviço',       tag:'service' },
+  { id:26, cat:'servicos',    name:'Troca de Pneus Completa',                emoji:'🔄', price:0, old:null, unit:'Serviço',       tag:'service' },
+  { id:27, cat:'servicos',    name:'Marcação de Pneus',                      emoji:'✏️', price:0, old:null, unit:'Serviço',       tag:'service' }
+];
+
+/* =========================================================
+   ESTADO E PERSISTÊNCIA
+   ========================================================= */
+const STORAGE_KEY = 'serginhos_cart_v1';
+let cart = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+let currentCategory = 'todos';
+let currentSearch = '';
+
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => document.querySelectorAll(sel);
+
+const fmt = (v) => v.toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
+const fmtPrice = (p) => (p && p > 0) ? fmt(p) : 'Sob consulta';
+
+/* =========================================================
+   RENDER CATEGORIAS
+   ========================================================= */
+function renderCategories(){
+  const grid = $('#catGrid');
+  grid.innerHTML = CATEGORIES.map(c => `
+    <div class="cat-card" onclick="filterCategory('${c.id}')">
+      <span class="emoji">${c.emoji}</span>
+      <strong>${c.name}</strong>
+      <small>${c.desc}</small>
+    </div>
+  `).join('');
+}
+
+/* =========================================================
+   RENDER PRODUTOS
+   ========================================================= */
+function renderProducts(){
+  const grid = $('#productGrid');
+  let list = PRODUCTS;
+
+  if (currentCategory !== 'todos') {
+    list = list.filter(p => p.cat === currentCategory);
+  }
+  if (currentSearch.trim()) {
+    const q = currentSearch.toLowerCase();
+    list = list.filter(p => p.name.toLowerCase().includes(q));
+  }
+
+  if (list.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gray-500)">
+      <div style="font-size:3rem;opacity:.4">🔍</div>
+      <p style="margin-top:12px;font-weight:600">Nenhum produto encontrado</p>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(p => {
+    const inCart = cart.find(i => i.id === p.id);
+    const tagHTML = p.tag === 'promo'   ? '<span class="product-tag promo">Oferta</span>'
+                  : p.tag === 'new'     ? '<span class="product-tag new">Novo</span>'
+                  : p.tag === 'service' ? '<span class="product-tag service">Serviço</span>'
+                  : '';
+    const isService = p.cat === 'servicos';
+    const priceHTML = p.price > 0
+      ? `<span class="product-price">${fmt(p.price)}</span>
+         ${p.old ? `<span class="product-old">${fmt(p.old)}</span>` : ''}`
+      : `<span class="product-price consult">Sob consulta</span>`;
+    return `
+    <article class="product">
+      ${tagHTML}
+      <div class="product-media">${p.emoji}</div>
+      <div class="product-info">
+        <span class="product-cat">${catName(p.cat)}</span>
+        <h3 class="product-name">${p.name}</h3>
+        <span class="product-unit">${p.unit}</span>
+        <div class="product-price-row">${priceHTML}</div>
+        <div class="product-actions">
+          <button class="add-btn ${inCart ? 'added' : ''} ${isService ? 'service' : ''}" onclick="addToCart(${p.id}, this)">
+            ${inCart ? '✓ No carrinho' : (isService ? '📞 Orçamento' : '🛒 Adicionar')}
+          </button>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function catName(id){
+  const c = CATEGORIES.find(x => x.id === id);
+  return c ? c.name : '';
+}
+
+/* =========================================================
+   AÇÕES DE CATEGORIA / BUSCA
+   ========================================================= */
+function filterCategory(id){
+  currentCategory = id;
+  currentSearch = '';
+  $('#searchInput').value = '';
+  $$('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === id));
+  const cat = CATEGORIES.find(c => c.id === id);
+  $('#productsTitle').textContent = id === 'todos' ? 'Ofertas da semana' : (cat ? cat.name : 'Produtos');
+  $('#productsSub').textContent = id === 'todos'
+    ? 'Os melhores preços em pneus e serviços'
+    : (cat ? cat.desc : '');
+  renderProducts();
+  document.getElementById('produtos').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+$$('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => filterCategory(btn.dataset.cat));
+});
+
+$('#searchInput').addEventListener('input', (e) => {
+  currentSearch = e.target.value;
+  currentCategory = 'todos';
+  $$('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === 'todos'));
+  $('#productsTitle').textContent = currentSearch ? `Resultados para "${currentSearch}"` : 'Ofertas da semana';
+  $('#productsSub').textContent = currentSearch
+    ? `${PRODUCTS.filter(p => p.name.toLowerCase().includes(currentSearch.toLowerCase())).length} produto(s) encontrado(s)`
+    : 'Os melhores preços em pneus e serviços';
+  renderProducts();
+});
+
+function scrollToProducts(){
+  document.getElementById('produtos').scrollIntoView({ behavior:'smooth' });
+}
+
+/* =========================================================
+   CARRINHO
+   ========================================================= */
+function addToCart(id, btn){
+  const product = PRODUCTS.find(p => p.id === id);
+  if (!product) return;
+
+  const existing = cart.find(i => i.id === id);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ id, name:product.name, emoji:product.emoji, price:product.price, unit:product.unit, qty:1, isService: product.cat === 'servicos' });
+  }
+  persist();
+  updateCartUI();
+  renderProducts();
+
+  if (product.price > 0) {
+    toast(`✓ ${product.name} adicionado!`, 'ok');
+  } else {
+    toast(`✓ ${product.name} adicionado (orçamento)!`, 'ok');
+  }
+}
+
+function removeFromCart(id){
+  cart = cart.filter(i => i.id !== id);
+  persist();
+  updateCartUI();
+  renderProducts();
+}
+
+function changeQty(id, delta){
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) {
+    removeFromCart(id);
+    return;
+  }
+  persist();
+  updateCartUI();
+  renderProducts();
+}
+
+function persist(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+}
+
+function cartTotal(){
+  return cart.reduce((s, i) => s + (i.price > 0 ? i.price * i.qty : 0), 0);
+}
+
+function cartCount(){
+  return cart.reduce((s, i) => s + i.qty, 0);
+}
+
+function updateCartUI(){
+  const count = cartCount();
+  const countEl = $('#cartCount');
+  countEl.textContent = count;
+  countEl.classList.toggle('show', count > 0);
+
+  const itemsEl = $('#cartItems');
+  if (cart.length === 0) {
+    itemsEl.innerHTML = `
+      <div class="cart-empty">
+        <div class="emoji">🛒</div>
+        <p style="font-weight:700;color:var(--gray-900)">Seu carrinho está vazio</p>
+        <p style="font-size:.85rem;margin-top:6px">Adicione produtos e eles aparecerão aqui</p>
+      </div>`;
+  } else {
+    itemsEl.innerHTML = cart.map(i => `
+      <div class="cart-item">
+        <div class="cart-item-media">${i.emoji}</div>
+        <div class="cart-item-info">
+          <strong>${i.name}</strong>
+          <small>${i.unit}</small>
+          <div class="cart-item-price">${i.price > 0 ? fmt(i.price * i.qty) : 'Sob consulta'}</div>
+          <div class="qty-ctrl">
+            <button onclick="changeQty(${i.id}, -1)">−</button>
+            <span>${i.qty}</span>
+            <button onclick="changeQty(${i.id}, 1)">+</button>
+          </div>
+        </div>
+        <button class="remove" onclick="removeFromCart(${i.id})" title="Remover">✕</button>
+      </div>
+    `).join('');
+  }
+
+  $('#cartTotal').textContent = fmt(cartTotal());
+  $('#checkoutBtn').disabled = cart.length === 0;
+}
+
+/* =========================================================
+   CHECKOUT VIA WHATSAPP
+   ========================================================= */
+$('#checkoutBtn').addEventListener('click', () => {
+  if (cart.length === 0) return;
+  let msg = '🛞 *Novo pedido - Sérginhos Centro Automotivo*\n\n';
+  cart.forEach((i, idx) => {
+    const priceStr = i.price > 0 ? `${i.qty}x ${fmt(i.price)} = ${fmt(i.price * i.qty)}` : `${i.qty}x (Sob consulta)`;
+    msg += `${idx+1}. ${i.name}\n   ${priceStr}\n`;
+  });
+  msg += `\n*Total dos itens: ${fmt(cartTotal())}*`;
+  msg += `\n\n📍 Endereço de entrega:\n(nome, rua, número, bairro, referência)`;
+  msg += `\n\nForma de pagamento: (Pix / Cartão / Dinheiro)`;
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+});
+
+/* =========================================================
+   DRAWER
+   ========================================================= */
+const drawer = $('#cartDrawer');
+const overlay = $('#overlay');
+
+function openCart(){
+  drawer.classList.add('open');
+  overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart(){
+  drawer.classList.remove('open');
+  overlay.classList.remove('show');
+  document.body.style.overflow = '';
+}
+$('#openCart').addEventListener('click', openCart);
+$('#closeCart').addEventListener('click', closeCart);
+overlay.addEventListener('click', closeCart);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+function toast(text, type='ok'){
+  const wrap = $('#toastWrap');
+  const el = document.createElement('div');
+  el.className = 'toast' + (type === 'error' ? ' error' : '');
+  el.textContent = text;
+  wrap.appendChild(el);
+  setTimeout(() => {
+    el.style.transition = 'opacity .3s, transform .3s';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(10px)';
+    setTimeout(() => el.remove(), 300);
+  }, 2200);
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
+renderCategories();
+renderProducts();
+updateCartUI();
+</script>
 </body>
 </html>
